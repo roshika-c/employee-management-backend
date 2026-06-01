@@ -1,5 +1,4 @@
 from fastapi import FastAPI
+from routes.employee_routes import router
 app=FastAPI()
-@app.get("/")
-def home():
-    return {"message":"Employee management backend running"}
+app.include_router(router)
