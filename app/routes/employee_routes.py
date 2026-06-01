@@ -4,6 +4,9 @@ router=APIRouter()
 employees=[]
 @router.post("/add_employee")
 def add_employee(employee:Employee):
+    for emp in employees:
+        if emp["id"]==employee.id:
+            return {"message":"Employee already exists"}
     employees.append(employee.model_dump())
     return {"message":"Employee added successfully"}
 
